@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OrleansConfiguration xmlns="urn:orleans">
+  <Globals>
+    <StorageProviders>
+      <Provider Type="Orleans.Storage.MemoryStorage" Name="PubSubStore"  />
+    </StorageProviders>
+
+    <StreamProviders>
+      
+      <Provider Type="Orleans.Providers.Streams.SimpleMessageStream.SimpleMessageStreamProvider" Name="SMSProvider"/>
+    </StreamProviders>
+    
+
+    <BootstrapProviders>
+      <Provider Type="OrniscientTest.BootstrapperClass" Name="OrniscientTest.BootstrapperClass"/>
+      
+      <Provider Type="Derivco.Orniscient.Proxy.BootstrapProviders.OrniscientFilterInterceptor" Name="OrniscientFilterInterceptor"/>
+    </BootstrapProviders>
+    
+    <SeedNode Address="localhost" Port="11112"/>
+  </Globals>
+  <Defaults>
+    <Networking Address="localhost" Port="11112"/>
+    <ProxyingGateway Address="localhost" Port="40000"/>
+  </Defaults>
+</OrleansConfiguration>
